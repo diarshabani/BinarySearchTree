@@ -1,5 +1,9 @@
 Computer Science 201: Data Structures & Algorithms
 
+<p align="center">
+  <img src="assets/projectGif.gif" width="500">
+</p>
+
 Binary Search Tree (BST) Project – Summary
 
 This project is a Java implementation of a Binary Search Tree with a simple Swing-based user interface that allows you to interact with the tree through on-screen buttons. The program supports:
