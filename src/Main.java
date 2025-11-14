@@ -13,7 +13,6 @@ public class Main {
         frame = new JFrame("BST App");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        // use BorderLayout so we can put buttons on top and tree drawing underneath
         frame.setLayout(new BorderLayout());
 
         mainPanel = new JPanel();
@@ -21,10 +20,8 @@ public class Main {
         addButtons();
         addListeners();
 
-        // buttons on top
         frame.add(mainPanel, BorderLayout.NORTH);
 
-        // tree drawing panel in the center
         addTreePanel();
 
         frame.pack();
@@ -63,21 +60,18 @@ public class Main {
         exitBtn.addActionListener(e -> System.exit(0));
     }
 
-    // panel that draws the tree underneath the buttons
     private void addTreePanel() {
         treePanel = new JPanel() {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
                 if (tree == null || tree.root == null) return;
-                // start drawing from the root in the middle
                 drawNode(g, tree.root, getWidth() / 2, 50, getWidth() / 4);
             }
 
             private void drawNode(Graphics g, Node node, int x, int y, int xOffset) {
                 if (node == null) return;
 
-                // draw left child and connecting line
                 if (node.left != null) {
                     int childX = x - xOffset;
                     int childY = y + 70;
@@ -85,7 +79,6 @@ public class Main {
                     drawNode(g, node.left, childX, childY, Math.max(20, xOffset / 2));
                 }
 
-                // draw right child and connecting line
                 if (node.right != null) {
                     int childX = x + xOffset;
                     int childY = y + 70;
@@ -163,13 +156,12 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        intializeTree(); // or set tree = null if you only want it created via the button
+        intializeTree();
         SwingUtilities.invokeLater(Main::new);
     }
 
     public static void intializeTree() {
         tree = new BinaryTree();
-        // Create Root
         tree.root = new Node(4);
 
         tree.root.left = new Node(2);
