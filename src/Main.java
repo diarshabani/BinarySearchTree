@@ -93,7 +93,6 @@ public class Main {
                     drawNode(g, node.right, childX, childY, Math.max(20, xOffset / 2));
                 }
 
-                // draw this node as a circle with the key in it
                 int r = 20;
                 g.setColor(Color.WHITE);
                 g.fillOval(x - r, y - r, 2 * r, 2 * r);

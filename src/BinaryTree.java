@@ -1,13 +1,14 @@
 public class BinaryTree {
-    // Root
     Node root;
+
     BinaryTree(int key) {
         root = new Node(key);
     }
-    //constructor
+
     BinaryTree() {
         root = null;
     }
+
     public void add(int i){
         if (root == null){
             root = new Node(i);
